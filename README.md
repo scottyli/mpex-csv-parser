@@ -8,3 +8,9 @@ Once the MPEX class has been loaded, the following will create a "mpex.csv" file
 m = MPEX.new
 m.to_csv
 ```
+
+To specify either only "Put" or "Call" options,
+```ruby
+m.to_csv("P") # for "Put"
+m.to_csv("C") # for "Call"
+```
