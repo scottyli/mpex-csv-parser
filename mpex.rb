@@ -24,7 +24,7 @@ class	MPEX
 				
 				type = option.scan(/\..+\.([C|P])\d+/).flatten![0]
 				strike = option.scan(/[C|P](\d+)/).flatten![0]
-				time = option[-1]				
+				expiry = option[-1]				
 				bid = node.css("td:eq(2)").text.to_f
 				ask = next_row.css("td:eq(2)").text.to_f
 				last = node.css("td:eq(3)").text.to_f
@@ -36,7 +36,7 @@ class	MPEX
 				{
 					type: type,
 					strike: strike,
-					time: time,
+					expiry: expiry,
 					bid: bid,
 					ask: ask,
 					last: last,
@@ -58,7 +58,7 @@ class	MPEX
 			csv << [
 				"type",
 				"strike",
-				"time",
+				"expiry",
 				"bid",
 				"ask",
 				"last",
@@ -72,7 +72,7 @@ class	MPEX
 				csv << [
 					d[:type],
 					d[:strike],
-					d[:time],
+					d[:expiry],
 					d[:bid],
 					d[:ask],
 					d[:last],
