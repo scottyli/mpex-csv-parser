@@ -56,15 +56,13 @@ class MPEX
 
   end
 
-  def to_csv
+  def to_csv(type = "ALL")
     CSV.open("mpex.csv", "w") do |csv|
       csv << COLUMNS
 
       @data.each do |d|
-        
-        csv << COLUMNS.map do |c|
-          d[c.to_sym]
-        end
+        next unless type == d[:type] || type == "ALL"
+        csv << COLUMNS.map { |c| d[c.to_sym] }         
       end
     end
   end
