@@ -12,6 +12,7 @@ class	MPEX
 		link = "http://mpex.co"
 		html = open(link).read
 		@noko = Nokogiri::HTML(html).css("table tr")
+		self.build_rows
 	end
 
 	def build_rows
@@ -89,5 +90,4 @@ end
 # Execute code ===========================
 
 # m = MPEX.new
-# m.build_rows
 # m.to_csv
